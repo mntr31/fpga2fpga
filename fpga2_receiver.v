@@ -1,91 +1,85 @@
-module fpga2_receiver (
-    input wire clk,              // Clock for FPGA 2
-    input wire rst_n,            // Active-low reset
-    input wire [31:0] data_in,   // 32-bit data from FPGA 1
-    input wire req_in,           // Request signal from FPGA 1
-    output reg rdy_out,          // Ready signal to FPGA 1
-    output reg ack_out,          // Acknowledge signal to FPGA 1
-    output reg [31:0] data_out   // Received data for further processing
+module fpga2_receiver #(
+    parameter RECEIVE_COUNT = 10
+) (
+    input wire clk,             // Clock for FPGA 2
+    input wire rst,             // Reset
+    /*(* syn_keep = "true" *)*/ input wire [31:0] data_in,   // 32-bit data from FPGA 1
+    input wire req_in,          // Request signal from FPGA 1
+    output reg rdy_out,         // Ready signal to FPGA 1
+    output reg ack_out,         // Acknowledge signal to FPGA 1
+    output reg [31:0] data_out  // Received data for further processing
 );
+
+    reg [9:0] recv_count = 0;   // Counter for number of data words received
+    reg [31:0] last_data;       // Register to hold the last received data
+
+    // State machine states
+    parameter IDLE       = 3'b000;
+    parameter READY      = 3'b001;
+    parameter RECEIVE    = 3'b010;
+    parameter RECEIVE_CONTINUOUS = 3'b011;
+    parameter ACKNOWLEDGE = 3'b100;
+
+    reg [2:0] state = 3'b000;
 
     // CDC synchronizers for req_in
     reg [1:0] req_sync;
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n)
+    always @(posedge clk) begin
+        if (rst)
             req_sync <= 0;
         else
-            req_sync <= {req_sync[0], req_in};
+            req_sync <= {req_sync[0], req_in}; // Shift register for catching req signal
     end
 
-    // State machine states
-    parameter IDLE       = 2'b00;
-    parameter READY      = 2'b01;
-    parameter RECEIVE    = 2'b10;
-    parameter ACKNOWLEDGE = 2'b11;
-
-    reg [1:0] state, next_state;
-    reg data_valid;  // Flag for valid data reception
+    
 
     // State machine
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n)
+    always @(posedge clk) begin
+        if (rst) begin
             state <= IDLE;
-        else
-            state <= next_state;
-    end
-
-    always @(*) begin
-        next_state = state;
-        case (state)
-            IDLE: begin
-                if (req_sync[1])
-                    next_state = READY;
-            end
-            READY: begin
-                next_state = RECEIVE;
-            end
-            RECEIVE: begin
-                if (data_valid)
-                    next_state = ACKNOWLEDGE;
-            end
-            ACKNOWLEDGE: begin
-                if (!req_sync[1])
-                    next_state = IDLE;
-            end
-            default: next_state = IDLE;
-        endcase
-    end
-
-    // Control signals and data handling
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
             rdy_out <= 0;
             ack_out <= 0;
             data_out <= 0;
-            data_valid <= 0;
         end else begin
             case (state)
                 IDLE: begin
                     rdy_out <= 0;
                     ack_out <= 0;
-                    data_valid <= 0;
+                    if (req_sync[1]) begin
+                        state = READY;
+                    end
                 end
+                
                 READY: begin
                     rdy_out <= 1;
+                    state = RECEIVE;
                 end
+                
                 RECEIVE: begin
-                    data_out <= data_in;
-                    data_valid <= 1;  // Assume data is valid in one cycle
-                end
+                    //if (recv_count < RECEIVE_COUNT) begin
+                        //if(data_out!==last_data) 
+                            last_data <= data_in;
+                            data_out <= last_data;
+                            //recv_count <= recv_count + 10'd1;
+                        //end else if(recv_count == RECEIVE_COUNT) begin
+                        //state <= ACKNOWLEDGE;
+                        //end
+                    end 
+                
                 ACKNOWLEDGE: begin
                     ack_out <= 1;
-                    rdy_out <= 0;
-                    if (!req_sync[1])
-                        ack_out <= 0;
-                end
+                    //rdy_out <= 0;
+                    //if (!req_sync[1])begin
+                    //ack_out <= 0;
+                    state = IDLE;
+                    end
+                
+                default: state = IDLE;
             endcase
         end
     end
+        
+    
 
     // Optional FIFO (commented out unless needed)
     /*

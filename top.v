@@ -1,39 +1,41 @@
-module top (
+module top #(
+    parameter RECEIVE_COUNT = 100,
+    parameter SEND_COUNT = 100
+) (
     input clk,              // Single clock for both sender and receiver (loopback on FPGA 1)
-    input rst_n,            // Active-low reset
+    input rst,              // Active-low reset
     input en,               // Enable signal for test
-    output reg led,              // LED to indicate successful data reception
-
-    output [31:0] do_1_to_2, // Data out from sender to receiver
-    input [31:0] di_1_to_2,
-    input i_ack_tx,
-    input i_rdy_tx,
-    output o_req_tx,
-    input i_req_rx,
-    output o_ack_rx // Data in from sender to receiver
+    output reg led,         // LED to indicate successful data reception
+    
+    (* syn_keep = "true" *) output [31:0] do_1_to_2,
+    (* syn_keep = "true" *) input [31:0] di_1_to_2,
+    
+    input i_ack_tx,         // Acknowledge signal from receiver to sender, input to Tx
+    input i_rdy_tx,         // Ready signal from sender to receiver, input to Tx
+    output o_req_tx,        // Request signal from sender to receiver, output from Tx
+    
+    input i_req_rx,         // Request signal from sender to receiver, input to Rx
+    output o_ack_rx,        // Acknowledge signal from receiver to sender, output from Rx
+    output o_rdy_rx         // Ready signal from receiver to sender, output from Rx
     );
-    
-  
-    
-    //reg rst_n;
-    wire rdy_rx;
 
     // Internal signals for test
-    reg start;                       // Start signal for sender
-    reg [31:0] di_gen;              // Generated test data
-    wire [31:0] do_2;            // Received data from receiver
-    wire done;                       // Done signal from sender
-    reg [7:0] send_count;            // Counter for number of data words to send
-    reg [7:0] recv_count;            // Counter for received data
-   // reg [31:0] expected_data = 32'hA5A5A5A5;        // Expected data for verification
-    reg test_complete;               // Flag for test completion
-
-    // Instantiate FPGA 1 Sender
-    fpga1_sender fpga1 (
+    reg start;                  // Start signal for sender
+    reg [31:0] di_gen;          // Generated test data
+    wire [31:0] do_2;           // Received data from receiver
+    wire done;                  // Done signal from sender
+    reg test_complete;          // Flag for test completion
+   
+   reg [31:0] clk_count = 32'd0;
+  
+  // Instantiate FPGA 1 Sender
+    fpga1_sender #(
+        .SEND_COUNT(SEND_COUNT)
+        ) fpga1 (
         .clk(clk),
-        .rst_n(rst_n),
+        .rst(rst),
         .start(start),
-        .data_in(di_gen), // Generate the data
+        .data_in(di_gen), 
         .rdy_in(i_rdy_tx),
         .ack_in(i_ack_tx),
         .data_out(do_1_to_2),
@@ -42,19 +44,26 @@ module top (
     );
 
     // Instantiate FPGA 2 Receiver
-    fpga2_receiver fpga2 (
+    fpga2_receiver #(
+        .RECEIVE_COUNT(RECEIVE_COUNT)
+        ) fpga2 (
         .clk(clk),
-        .rst_n(rst_n),
+        .rst(rst),
         .data_in(di_1_to_2),
         .req_in(i_req_rx),
-        .rdy_out(rdy_rx),
+        .rdy_out(o_rdy_rx),
         .ack_out(o_ack_rx),
         .data_out(do_2) // Loopback data
     );
 
-    // Test loop: Generate data, send, receive, and verify
-    always @(posedge clk ) begin
-        if (rst_n) begin
+    // Test loop: Generate data, send, and receive
+    always @(posedge clk && en) begin
+    //clk_count <= clk_count + 1;
+    start <= 1;
+        //if(en) begin
+        di_gen <= di_gen + 32'd1;
+        //end
+        /*if (rst) begin
             start <= 0;
             di_gen <= 0;
             send_count <= 0;
@@ -62,11 +71,12 @@ module top (
             test_complete <= 0;
             led <= 0;
         end else if(en) begin
+            start <= 1;
             if (!test_complete) begin
                 // Data generation and sending
-                if (send_count < 10 && !start) begin // Send 10 words for testing
+                if (send_count < 100 && !start) begin // Send 10 words for testing
                     start <= 1;
-                    di_gen <= send_count + 32'hA5A5A5A5; // Simple pattern: counter + constant
+                    di_gen <= send_count + 32'h00000001; // Simple pattern: counter + constant
                 end else if (start && done) begin
                     start <= 0;
                     send_count <= send_count + 8'd1;
@@ -79,11 +89,11 @@ module top (
                 end
 
                 // Check if all data is sent and received
-                if (send_count == 10 && recv_count == 10) begin
+                if (send_count == 100 && recv_count == 100) begin
                     test_complete <= 1;
                     led <= 1; // Turn on LED to indicate success
                 end
-            end
+            end*/
         end
     
 
