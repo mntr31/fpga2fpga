@@ -17,7 +17,6 @@ module fpga2_receiver #(
     parameter IDLE       = 3'b000;
     parameter READY      = 3'b001;
     parameter RECEIVE    = 3'b010;
-    parameter RECEIVE_CONTINUOUS = 3'b011;
     parameter ACKNOWLEDGE = 3'b100;
 
     reg [2:0] state = 3'b000;
@@ -51,28 +50,28 @@ module fpga2_receiver #(
                 end
                 
                 READY: begin
+                    recv_count <= RECEIVE_COUNT;
                     rdy_out <= 1;
                     state = RECEIVE;
                 end
                 
                 RECEIVE: begin
-                    //if (recv_count < RECEIVE_COUNT) begin
-                        //if(data_out!==last_data) 
-                            last_data <= data_in;
-                            data_out <= last_data;
-                            //recv_count <= recv_count + 10'd1;
-                        //end else if(recv_count == RECEIVE_COUNT) begin
-                        //state <= ACKNOWLEDGE;
-                        //end
+                    if (recv_count > 0) begin 
+                        data_out <= data_in;
+                        recv_count <= recv_count - 10'd1;
+                    end else begin
+                        state <= ACKNOWLEDGE;
+                        end
                     end 
                 
                 ACKNOWLEDGE: begin
                     ack_out <= 1;
-                    //rdy_out <= 0;
-                    //if (!req_sync[1])begin
-                    //ack_out <= 0;
+                    rdy_out <= 0;
+                    if (!req_sync[1])begin
+                    ack_out <= 0;
                     state = IDLE;
                     end
+                end
                 
                 default: state = IDLE;
             endcase

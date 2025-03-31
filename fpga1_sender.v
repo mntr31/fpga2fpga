@@ -49,37 +49,29 @@ module fpga1_sender #(
                 end
                 
                 WAIT_READY: begin
+                    send_count <= SEND_COUNT;
                     req_out <= 1;
-                    //data_buffer <= data_in;
-                    //if (SEND_COUNT==0 && rdy_in)begin
-                    //state = SEND_CONTINUOUS;
-                    //end else 
                     if (rdy_in)begin
                     state = SEND_DATA;
                     end
                 end
                 
                 SEND_DATA: begin
-                    //if (send_count < SEND_COUNT) begin
+                    if (send_count > 0) begin
                     data_out <= data_in;
-                    //send_done <= 1;  // Assume single-cycle send for simplicity
-                    //send_count <= send_count + 10'd1;
-                    //end else if (send_count == SEND_COUNT) begin
-                    //send_done <= 1;
-                    //end
-                    //if (send_done) begin
-                    //state = WAIT_ACK; 
-                    //end
-                end
-                
-                SEND_CONTINUOUS: begin
-                    data_out <= data_buffer;
+                    send_count <= send_count - 10'd1;
+                    end else begin
+                    send_done <= 1;
+                    end
+                    if (send_done) begin
+                    state = WAIT_ACK; 
+                    end
                 end
                 
                 WAIT_ACK: begin
                     if (ack_in) begin
                         done <= 1;
-                        //req_out <= 0;
+                        req_out <= 0;
                         state = IDLE;  // Success
                     end else if (!rdy_in) begin
                     state = RESEND;  // Failure

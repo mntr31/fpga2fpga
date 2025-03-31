@@ -21,12 +21,10 @@ module top #(
 
     // Internal signals for test
     reg start;                  // Start signal for sender
-    reg [31:0] di_gen;          // Generated test data
+    reg [31:0] di_gen = 32'hffffffff;          // Generated test data
     wire [31:0] do_2;           // Received data from receiver
     wire done;                  // Done signal from sender
     reg test_complete;          // Flag for test completion
-   
-   reg [31:0] clk_count = 32'd0;
   
   // Instantiate FPGA 1 Sender
     fpga1_sender #(
@@ -58,10 +56,8 @@ module top #(
 
     // Test loop: Generate data, send, and receive
     always @(posedge clk && en) begin
-    //clk_count <= clk_count + 1;
     start <= 1;
-        //if(en) begin
-        di_gen <= di_gen + 32'd1;
+    di_gen <= di_gen - 32'd1;
         //end
         /*if (rst) begin
             start <= 0;

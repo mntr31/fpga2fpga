@@ -37,10 +37,7 @@ module edb_top (
     input  la0_probe13,
     input  la0_probe14,
     input  la0_probe15,
-    input  la0_probe16,
-    input  la0_probe17,
-    input  la0_probe18,
-    input  [31:0] la0_probe19
+    input  la0_probe16
 );
 
     localparam HUB_CS_WIDTH = 15;
@@ -89,13 +86,13 @@ module edb_top (
 
     // debug core instances
     edb_la_top #(
-        .NUM_PROBES         ( 20 ),
+        .NUM_PROBES         ( 17 ),
         .DATA_DEPTH         ( 1024 ),
         .TRIGIN_EN          ( 0 ),
         .TRIGOUT_EN         ( 0 ),
         .INPUT_PIPE_STAGES      ( 1 ),
         .CAPTURE_CONTROL    ( 0 ),
-        .UUID   ( 128'h70823ed9572545aab194b6d6876548ff ),
+        .UUID   ( 128'hd98392e3322b4c68b62f414711d124a8 ),
         .CNDTNL_STRG_EN     ( 0 ),
         .PROBE0_WIDTH       ( 1 ),
         .PROBE0_TYPE        ( 1 ),
@@ -130,13 +127,7 @@ module edb_top (
         .PROBE15_WIDTH      ( 1 ),
         .PROBE15_TYPE       ( 1 ),
         .PROBE16_WIDTH      ( 1 ),
-        .PROBE16_TYPE       ( 1 ),
-        .PROBE17_WIDTH      ( 1 ),
-        .PROBE17_TYPE       ( 1 ),
-        .PROBE18_WIDTH      ( 1 ),
-        .PROBE18_TYPE       ( 1 ),
-        .PROBE19_WIDTH      ( 32 ),
-        .PROBE19_TYPE       ( 1 )
+        .PROBE16_TYPE       ( 1 )
     ) la0 (
         .bscan_CAPTURE                  ( bscan_CAPTURE ),
         .bscan_DRCK                     ( bscan_DRCK ),
@@ -173,10 +164,7 @@ module edb_top (
         .probe13                    ( la0_probe13 ),
         .probe14                    ( la0_probe14 ),
         .probe15                    ( la0_probe15 ),
-        .probe16                    ( la0_probe16 ),
-        .probe17                    ( la0_probe17 ),
-        .probe18                    ( la0_probe18 ),
-        .probe19                    ( la0_probe19 )
+        .probe16                    ( la0_probe16 )
     );
 
     debug_hub debug_hub_inst (
