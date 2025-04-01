@@ -5,13 +5,14 @@ module fpga2_receiver #(
     input wire rst,             // Reset
     /*(* syn_keep = "true" *)*/ input wire [31:0] data_in,   // 32-bit data from FPGA 1
     input wire req_in,          // Request signal from FPGA 1
+    input wire send_done,
     output reg rdy_out,         // Ready signal to FPGA 1
     output reg ack_out,         // Acknowledge signal to FPGA 1
     output reg [31:0] data_out  // Received data for further processing
 );
 
-    reg [9:0] recv_count = 0;   // Counter for number of data words received
-    reg [31:0] last_data;       // Register to hold the last received data
+   // reg [9:0] recv_count = 0;   // Counter for number of data words received
+   // reg [31:0] last_data;       // Register to hold the last received data
 
     // State machine states
     parameter IDLE       = 3'b000;
@@ -21,16 +22,24 @@ module fpga2_receiver #(
 
     reg [2:0] state = 3'b000;
 
-    // CDC synchronizers for req_in
+    // CDC synchronizers for req_in and send_done
     reg [1:0] req_sync;
+    reg [1:0] send_done_sync;
+
     always @(posedge clk) begin
         if (rst)
             req_sync <= 0;
         else
-            req_sync <= {req_sync[0], req_in}; // Shift register for catching req signal
+            req_sync <= {req_sync[1:0], req_in}; // Shift register for catching req signal
     end
 
-    
+    always @(posedge clk) begin
+        if (rst)
+            send_done_sync <= 0;
+        else
+            send_done_sync <= {send_done_sync[1:0], send_done}; // Shift register for catching send_done signal
+    end
+
 
     // State machine
     always @(posedge clk) begin
@@ -44,32 +53,34 @@ module fpga2_receiver #(
                 IDLE: begin
                     rdy_out <= 0;
                     ack_out <= 0;
-                    if (req_sync[1]) begin
+                    if (req_sync[0] | req_sync[1]) begin
+                    //if (req_in) begin
                         state = READY;
                     end
                 end
                 
                 READY: begin
-                    recv_count <= RECEIVE_COUNT;
+                    //recv_count <= RECEIVE_COUNT;
                     rdy_out <= 1;
                     state = RECEIVE;
                 end
                 
                 RECEIVE: begin
-                    if (recv_count > 0) begin 
+                    if (!(send_done_sync[0] | send_done_sync[1])) begin
                         data_out <= data_in;
-                        recv_count <= recv_count - 10'd1;
                     end else begin
                         state <= ACKNOWLEDGE;
-                        end
+                    end
                     end 
                 
                 ACKNOWLEDGE: begin
-                    ack_out <= 1;
-                    rdy_out <= 0;
-                    if (!req_sync[1])begin
-                    ack_out <= 0;
-                    state = IDLE;
+                    if (send_done_sync[0] | send_done_sync[1]) begin
+                        ack_out <= 1;
+                        rdy_out <= 0;
+                        state = IDLE;  // Success
+                    end else if (!(req_sync[0] | req_sync[1])) begin
+                        ack_out <= 0;
+                        state = IDLE;  // Failure
                     end
                 end
                 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efxpt:design_db name="fpga2fpga" device_def="T120F324" version="2024.1.163" db_version="20241999" last_change_date="Sat Mar 29 15:35:51 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
+<efxpt:design_db name="fpga2fpga" device_def="T120F324" version="2024.1.163" db_version="20241999" last_change_date="Tue Apr  1 10:56:40 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
     <efxpt:device_info>
         <efxpt:iobank_info>
             <efxpt:iobank name="1A" iostd="3.3 V LVTTL / LVCMOS"/>
@@ -25,196 +25,196 @@
             <efxpt:input_config name="clk_pll" name_ddio_lo="" conn_type="pll_clkin" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[0]" gpio_def="GPIOT_RXN21" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[0]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[0]" name_ddio_lo="di_1_to_2_LO[0]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[10]" gpio_def="GPIOT_RXN12" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[10]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[10]" name_ddio_lo="di_1_to_2_LO[10]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[11]" gpio_def="GPIOT_RXN04" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[11]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[11]" name_ddio_lo="di_1_to_2_LO[11]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[12]" gpio_def="GPIOT_RXN01" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[12]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[12]" name_ddio_lo="di_1_to_2_LO[12]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[13]" gpio_def="GPIOT_RXN03" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[13]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[13]" name_ddio_lo="di_1_to_2_LO[13]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[14]" gpio_def="GPIOT_RXN11" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[14]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[14]" name_ddio_lo="di_1_to_2_LO[14]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[15]" gpio_def="GPIOT_RXN07" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[15]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[15]" name_ddio_lo="di_1_to_2_LO[15]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[16]" gpio_def="GPIOT_RXN06" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[16]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[16]" name_ddio_lo="di_1_to_2_LO[16]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[17]" gpio_def="GPIOT_RXN15" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[17]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[17]" name_ddio_lo="di_1_to_2_LO[17]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[18]" gpio_def="GPIOT_RXN05" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[18]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[18]" name_ddio_lo="di_1_to_2_LO[18]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[19]" gpio_def="GPIOT_RXN13" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[19]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[19]" name_ddio_lo="di_1_to_2_LO[19]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[1]" gpio_def="GPIOT_RXN18" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[1]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[1]" name_ddio_lo="di_1_to_2_LO[1]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[20]" gpio_def="GPIOT_RXP21" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[20]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[20]" name_ddio_lo="di_1_to_2_LO[20]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[21]" gpio_def="GPIOT_RXP18" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[21]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[21]" name_ddio_lo="di_1_to_2_LO[21]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[22]" gpio_def="GPIOT_RXP08" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[22]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[22]" name_ddio_lo="di_1_to_2_LO[22]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[23]" gpio_def="GPIOT_RXP17" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[23]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[23]" name_ddio_lo="di_1_to_2_LO[23]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[24]" gpio_def="GPIOT_RXP14" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[24]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[24]" name_ddio_lo="di_1_to_2_LO[24]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[25]" gpio_def="GPIOT_RXP11" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[25]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[25]" name_ddio_lo="di_1_to_2_LO[25]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[26]" gpio_def="GPIOT_RXP07" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[26]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[26]" name_ddio_lo="di_1_to_2_LO[26]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[27]" gpio_def="GPIOT_RXP06" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[27]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[27]" name_ddio_lo="di_1_to_2_LO[27]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[28]" gpio_def="GPIOT_RXP13" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[28]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[28]" name_ddio_lo="di_1_to_2_LO[28]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[29]" gpio_def="GPIOT_RXP09" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[29]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[29]" name_ddio_lo="di_1_to_2_LO[29]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[2]" gpio_def="GPIOT_RXN08" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[2]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[2]" name_ddio_lo="di_1_to_2_LO[2]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[30]" gpio_def="GPIOT_RXP12" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[30]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[30]" name_ddio_lo="di_1_to_2_LO[30]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[31]" gpio_def="GPIOT_RXP03" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[31]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[31]" name_ddio_lo="di_1_to_2_LO[31]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[3]" gpio_def="GPIOT_RXN17" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[3]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[3]" name_ddio_lo="di_1_to_2_LO[3]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[4]" gpio_def="GPIOT_RXN14" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[4]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[4]" name_ddio_lo="di_1_to_2_LO[4]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[5]" gpio_def="GPIOT_RXN16" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[5]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[5]" name_ddio_lo="di_1_to_2_LO[5]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[6]" gpio_def="GPIOT_RXN20" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[6]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[6]" name_ddio_lo="di_1_to_2_LO[6]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[7]" gpio_def="GPIOT_RXN02" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[7]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[7]" name_ddio_lo="di_1_to_2_LO[7]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[8]" gpio_def="GPIOT_RXN19" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[8]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[8]" name_ddio_lo="di_1_to_2_LO[8]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="di_1_to_2[9]" gpio_def="GPIOT_RXN09" mode="input" bus_name="di_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:input_config name="di_1_to_2[9]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:input_config name="di_1_to_2[9]" name_ddio_lo="di_1_to_2_LO[9]" conn_type="normal" is_register="true" clock_name="clk" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[0]" gpio_def="GPIOB_TXN00" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[0]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[0]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[10]" gpio_def="GPIOB_TXN10" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[10]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[10]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[11]" gpio_def="GPIOB_TXN11" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[11]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[11]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[12]" gpio_def="GPIOB_TXN12" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[12]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[12]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[13]" gpio_def="GPIOB_TXN13" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[13]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[13]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[14]" gpio_def="GPIOB_TXN14" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[14]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[14]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[15]" gpio_def="GPIOB_TXN15" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[15]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[15]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[16]" gpio_def="GPIOB_TXN16" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[16]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[16]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[17]" gpio_def="GPIOB_TXN17" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[17]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[17]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[18]" gpio_def="GPIOB_TXN18" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[18]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[18]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[19]" gpio_def="GPIOB_TXN19" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[19]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[19]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[1]" gpio_def="GPIOB_TXN01" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[1]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[1]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[20]" gpio_def="GPIOB_TXP00" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[20]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[20]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[21]" gpio_def="GPIOB_TXP01" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[21]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[21]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[22]" gpio_def="GPIOB_TXP02" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[22]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[22]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[23]" gpio_def="GPIOB_TXP03" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[23]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[23]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[24]" gpio_def="GPIOB_TXP04" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[24]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[24]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[25]" gpio_def="GPIOB_TXP14" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[25]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[25]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[26]" gpio_def="GPIOB_TXP15" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[26]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[26]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[27]" gpio_def="GPIOB_TXP16" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[27]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[27]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[28]" gpio_def="GPIOB_TXP19" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[28]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[28]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[29]" gpio_def="GPIOB_TXP09" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[29]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[29]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[2]" gpio_def="GPIOB_TXN02" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[2]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[2]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[30]" gpio_def="GPIOB_TXP10" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[30]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[30]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[31]" gpio_def="GPIOB_TXP13" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[31]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[31]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[3]" gpio_def="GPIOB_TXN03" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[3]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[3]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[4]" gpio_def="GPIOB_TXN04" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[4]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[4]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[5]" gpio_def="GPIOB_TXN05" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[5]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[5]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[6]" gpio_def="GPIOB_TXN06" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[6]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[6]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[7]" gpio_def="GPIOB_TXN07" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[7]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[7]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[8]" gpio_def="GPIOB_TXN08" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[8]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[8]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="do_1_to_2[9]" gpio_def="GPIOB_TXN09" mode="output" bus_name="do_1_to_2" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
-            <efxpt:output_config name="do_1_to_2[9]" name_ddio_lo="" register_option="none" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_config name="do_1_to_2[9]" name_ddio_lo="" register_option="register" clock_name="clk" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="en" gpio_def="GPIOT_RXN24" mode="input" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
             <efxpt:input_config name="en" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
