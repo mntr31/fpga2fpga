@@ -25,6 +25,7 @@ To be used when one FPGA is used as a debugger of anothe FPGA.
     2. The interface designer gives warning when we use more than 14 pins of LVDS from the same I/O Bank of potential noise occurence. But there are only 2 banks available for LVDS Tx pins, so we have no option but to use more than 14 pins of the same bank. Currently we are not having noise in Loopback, but it might occur when we are dealing with 2 different FPGAs, given that the cable length will be increased.
     3. Currently working fine for upto 200 MHz clock frequency, without debugger for loopback, giving ~800 MBps speed. Still using it at 100 MHz at ~400 MBps speed keeping in mind that it will be suitable when integrated with Gati. Just in case if you need more speed in future, it can work faster.
     4. Tested on Trion, yet to test with Titanium.
+    5. When `done` signal is asserted, the data coming from process should be stopped, i.e., `start` signal should be low, else it will start again.
 
 ## Keep this in mind:
 - For pin assignment in interface designer,
@@ -32,9 +33,15 @@ To be used when one FPGA is used as a debugger of anothe FPGA.
     2. Refer [this PDF](resources/Vaaman_LVDS_TX_RX.pdf) for the PCB of loopback and map the pins as shown in the image below.\
        ![pin_mapping](resources/pin_mapping.png)
  
- 
-
-
 - The pins will be changed if the PCB of LVDS or the FPGA itself is changed. You need to change it accordingly in the interface designer.
 - There will be CDC issues for sure, add/comment out any FIFOs or register as needed.
 - I have added comments so you can understand it easily (though the code is no that complex).
+
+## Simulation:
+Start:\
+![start of transmission](resources/start.png)
+
+End:\
+![end of transmission](resources/end.png)
+
+
