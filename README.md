@@ -28,8 +28,10 @@ To be used when one FPGA is used as a debugger of anothe FPGA.
 
 ## Keep this in mind:
 - For pin assignment in interface designer,
-    1. Refer this PDF for Vaaman's LVDS Pinouts guide.
-    2. Refer this PDF for the PCB of loopback and map the pins as shown in the image below.
+    1. Refer [this PDF](resources/Vaaman0.3_Pinout_Guide_Rev0.3.pdf) for Vaaman's LVDS Pinouts guide.
+    2. Refer [this PDF](resources/Vaaman_LVDS_TX_RX.pdf) for the PCB of loopback and map the pins as shown in the image below.\
+       (resources/pin_mapping.png)
+ 
  
 
 
