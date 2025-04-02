@@ -22,22 +22,20 @@ module edb_top (
     output bscan_TDO,
     input  la0_clk,
     input  la0_probe0,
-    input  [31:0] la0_probe1,
-    input  [31:0] la0_probe2,
+    input  la0_probe1,
+    input  la0_probe2,
     input  la0_probe3,
-    input  [31:0] la0_probe4,
-    input  [31:0] la0_probe5,
-    input  la0_probe6,
-    input  la0_probe7,
-    input  la0_probe8,
-    input  la0_probe9,
+    input  la0_probe4,
+    input  la0_probe5,
+    input  [31:0] la0_probe6,
+    input  [31:0] la0_probe7,
+    input  [31:0] la0_probe8,
+    input  [31:0] la0_probe9,
     input  la0_probe10,
     input  la0_probe11,
     input  la0_probe12,
     input  la0_probe13,
-    input  la0_probe14,
-    input  la0_probe15,
-    input  la0_probe16
+    input  la0_probe14
 );
 
     localparam HUB_CS_WIDTH = 15;
@@ -86,33 +84,33 @@ module edb_top (
 
     // debug core instances
     edb_la_top #(
-        .NUM_PROBES         ( 17 ),
+        .NUM_PROBES         ( 15 ),
         .DATA_DEPTH         ( 1024 ),
         .TRIGIN_EN          ( 0 ),
         .TRIGOUT_EN         ( 0 ),
         .INPUT_PIPE_STAGES      ( 1 ),
         .CAPTURE_CONTROL    ( 0 ),
-        .UUID   ( 128'hd98392e3322b4c68b62f414711d124a8 ),
+        .UUID   ( 128'h8b5440f09d904970931bbe73c9e9c9a5 ),
         .CNDTNL_STRG_EN     ( 0 ),
         .PROBE0_WIDTH       ( 1 ),
         .PROBE0_TYPE        ( 1 ),
-        .PROBE1_WIDTH       ( 32 ),
+        .PROBE1_WIDTH       ( 1 ),
         .PROBE1_TYPE        ( 1 ),
-        .PROBE2_WIDTH       ( 32 ),
+        .PROBE2_WIDTH       ( 1 ),
         .PROBE2_TYPE        ( 1 ),
         .PROBE3_WIDTH       ( 1 ),
         .PROBE3_TYPE        ( 1 ),
-        .PROBE4_WIDTH       ( 32 ),
+        .PROBE4_WIDTH       ( 1 ),
         .PROBE4_TYPE        ( 1 ),
-        .PROBE5_WIDTH       ( 32 ),
+        .PROBE5_WIDTH       ( 1 ),
         .PROBE5_TYPE        ( 1 ),
-        .PROBE6_WIDTH       ( 1 ),
+        .PROBE6_WIDTH       ( 32 ),
         .PROBE6_TYPE        ( 1 ),
-        .PROBE7_WIDTH       ( 1 ),
+        .PROBE7_WIDTH       ( 32 ),
         .PROBE7_TYPE        ( 1 ),
-        .PROBE8_WIDTH       ( 1 ),
+        .PROBE8_WIDTH       ( 32 ),
         .PROBE8_TYPE        ( 1 ),
-        .PROBE9_WIDTH       ( 1 ),
+        .PROBE9_WIDTH       ( 32 ),
         .PROBE9_TYPE        ( 1 ),
         .PROBE10_WIDTH      ( 1 ),
         .PROBE10_TYPE       ( 1 ),
@@ -123,11 +121,7 @@ module edb_top (
         .PROBE13_WIDTH      ( 1 ),
         .PROBE13_TYPE       ( 1 ),
         .PROBE14_WIDTH      ( 1 ),
-        .PROBE14_TYPE       ( 1 ),
-        .PROBE15_WIDTH      ( 1 ),
-        .PROBE15_TYPE       ( 1 ),
-        .PROBE16_WIDTH      ( 1 ),
-        .PROBE16_TYPE       ( 1 )
+        .PROBE14_TYPE       ( 1 )
     ) la0 (
         .bscan_CAPTURE                  ( bscan_CAPTURE ),
         .bscan_DRCK                     ( bscan_DRCK ),
@@ -162,9 +156,7 @@ module edb_top (
         .probe11                    ( la0_probe11 ),
         .probe12                    ( la0_probe12 ),
         .probe13                    ( la0_probe13 ),
-        .probe14                    ( la0_probe14 ),
-        .probe15                    ( la0_probe15 ),
-        .probe16                    ( la0_probe16 )
+        .probe14                    ( la0_probe14 )
     );
 
     debug_hub debug_hub_inst (
