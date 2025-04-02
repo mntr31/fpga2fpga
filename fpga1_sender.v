@@ -24,10 +24,10 @@ module fpga1_sender #(
     reg [2:0] state      = 3'b000;
     //reg [31:0] data_buffer;     // Buffer to hold data
 
-    reg [2:0] r_send_done = 0;      // Register to hold send done signal
+    reg [2:0] r_send_done = 0;      // Register to hold send done signal, stretching the pulse to 3 cycles
     reg send_done_shifter;          // Shift register for send done signal
 
-    assign send_done = (r_send_done[0] | r_send_done[1] | r_send_done[2]); // Send done signal to FPGA 2
+    assign send_done = (r_send_done[0] | r_send_done[1] | r_send_done[2]); // Streched "send_done" signal to FPGA 2
 
     // State machine
     always @(posedge clk) begin
@@ -63,7 +63,7 @@ module fpga1_sender #(
                         data_out <= data_in;
                         send_count <= send_count - 10'd1;
                     end else begin
-                        send_done_shifter <= 1;  // I don't know what to explain here
+                        send_done_shifter <= 1'b1;  // I don't know what to explain here
                         state = WAIT_ACK;
                     end
                 end
@@ -73,9 +73,9 @@ module fpga1_sender #(
                         done <= 1;
                         req_out <= 0;
                         send_done_shifter <= 1'b0;  // Reset send_done
-                        state = IDLE;  // Success
+                        state <= IDLE;  // Success
                     end else if (!rdy_in) begin
-                        state = RESEND;  // Failure
+                        state <= RESEND;  // Failure
                         send_done_shifter <= 1'b0;  // Reset send_done
                     end 
                 end
@@ -91,7 +91,7 @@ module fpga1_sender #(
 
     // Shift register logic for send_done
     always @(posedge clk) begin
-        if (rst) begin
+        if (rst | ack_in) begin
             r_send_done <= 3'b000;  // Reset send_done
         end else if (send_done_shifter) begin
             r_send_done[0] <= send_done_shifter;  // Set send_done high for 3 cycles

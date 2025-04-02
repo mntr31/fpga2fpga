@@ -90,7 +90,7 @@ module edb_top (
         .TRIGOUT_EN         ( 0 ),
         .INPUT_PIPE_STAGES      ( 1 ),
         .CAPTURE_CONTROL    ( 0 ),
-        .UUID   ( 128'h8b5440f09d904970931bbe73c9e9c9a5 ),
+        .UUID   ( 128'h926cb105d3cb482a9cd0d0ab1287c3a0 ),
         .CNDTNL_STRG_EN     ( 0 ),
         .PROBE0_WIDTH       ( 1 ),
         .PROBE0_TYPE        ( 1 ),

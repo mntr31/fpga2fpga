@@ -1,5 +1,5 @@
 module fpga2_receiver #(
-    parameter RECEIVE_COUNT = 10
+    parameter RECEIVE_COUNT = 10 // Use only when the data size is known
 ) (
     input wire clk,             // Clock for FPGA 2
     input wire rst,             // Reset
@@ -10,21 +10,20 @@ module fpga2_receiver #(
     output reg ack_out,         // Acknowledge signal to FPGA 1
     output reg [31:0] data_out  // Received data for further processing
 );
-
-   // reg [9:0] recv_count = 0;   // Counter for number of data words received
-   // reg [31:0] last_data;       // Register to hold the last received data
+    // To be used with RECEIVE_COUNT
+    // reg [9:0] recv_count = 0;   // Counter for number of data words received
 
     // State machine states
-    parameter IDLE       = 3'b000;
+    parameter IDLE       = 3'b000; 
     parameter READY      = 3'b001;
     parameter RECEIVE    = 3'b010;
     parameter ACKNOWLEDGE = 3'b100;
 
     reg [2:0] state = 3'b000;
 
-    // CDC synchronizers for req_in and send_done
-    reg [1:0] req_sync;
-    reg [1:0] send_done_sync;
+    // CDC synchronizers for req_in and send_done, the pulse is stretched to make sure it is caught
+    reg [1:0] req_sync;         // For synchronizing req_in
+    reg [1:0] send_done_sync;   // For synchronizing send_done
 
     always @(posedge clk) begin
         if (rst)
@@ -49,8 +48,9 @@ module fpga2_receiver #(
             ack_out <= 0;
             data_out <= 0;
         end else begin
+
             case (state)
-                IDLE: begin
+                IDLE: begin             // It's like home, after doing everything, state will come here
                     rdy_out <= 0;
                     ack_out <= 0;
                     if (req_sync[0] | req_sync[1]) begin
@@ -59,28 +59,28 @@ module fpga2_receiver #(
                     end
                 end
                 
-                READY: begin
+                READY: begin            // Sending ready signal to sender
                     //recv_count <= RECEIVE_COUNT;
                     rdy_out <= 1;
                     state = RECEIVE;
                 end
                 
-                RECEIVE: begin
-                    if (!(send_done_sync[0] | send_done_sync[1])) begin
-                        data_out <= data_in;
+                RECEIVE: begin                  // Receiving data from sender
+                    if (!(send_done_sync[0] | send_done_sync[1])) begin    
+                        data_out <= data_in;    // Store received data
                     end else begin
                         state <= ACKNOWLEDGE;
                     end
                     end 
                 
-                ACKNOWLEDGE: begin
+                ACKNOWLEDGE: begin      // Acknowledge the sender
                     if (send_done_sync[0] | send_done_sync[1]) begin
                         ack_out <= 1;
                         rdy_out <= 0;
-                        state = IDLE;  // Success
+                        state = IDLE;  // Success of data reception
                     end else if (!(req_sync[0] | req_sync[1])) begin
                         ack_out <= 0;
-                        state = IDLE;  // Failure
+                        state = IDLE;  // Failure of data reception
                     end
                 end
                 
@@ -91,7 +91,7 @@ module fpga2_receiver #(
         
     
 
-    // Optional FIFO (commented out unless needed)
+    // Optional FIFO for CDC(commented out unless needed)
     /*
     reg [31:0] fifo_data;
     reg fifo_wr_en;
