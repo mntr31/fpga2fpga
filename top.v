@@ -59,7 +59,10 @@ module top #(
 
     // Test loop: Generate data, send, and receive
     always @(posedge clk && en) begin
-    start <= 1;
+    if (!done) begin
+        start <= 1;
+    end
+    
     di_gen <= di_gen - 32'd1;
     end
     
