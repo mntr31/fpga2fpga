@@ -9,7 +9,20 @@ module fpga1_sender (
   output reg req_out,         // Request signal to FPGA 2
   output reg done,            // Done signal for the process
   output send_done,           // Send done signal to FPGA 2  
-  input [9:0] send_count    // Number of data words to send, from the process
+  input [9:0] send_count      // Number of data words to send, from the process
+
+  // Primary FIFO signals, FIFO Depth is 512
+  input wr_en_i,        // Write enable signal for FIFO
+  input rd_en_i,        // Read enable signal for FIFO
+  output prog_full_o,   // Programmable full signal from FIFO
+  output [31:0] fifo_rdata, // FIFO read data
+  output empty_o,       // Empty signal from FIFO
+
+  // Secondary FIFO signals
+  output full_o,        // Full signal from FIFO    
+  output rst_busy,      // Reset busy signal from FIFO
+  output overflow_o,    // Overflow signal from FIFO
+  output underflow_o    // Underflow signal from FIFO
 );  
 
   // State machine states
@@ -106,4 +119,23 @@ module fpga1_sender (
     r_send_done[2] <= r_send_done[1];  
    end
   end
+
+fpga1_sender_fifo sender_fifo (
+  .prog_full_o(prog_full_o),
+  .full_o(full_o),
+  .empty_o(empty_o),
+  .wr_clk_i(wr_clk_i),
+  .rd_clk_i(rd_clk_i),
+  .wr_en_i(wr_en_i),
+  .rd_en_i(rd_en_i),
+  .wdata(fifo_wdata),
+  .rst_busy(rst_busy),
+  .rdata(fifo_rdata),
+  .a_rst_i(rst),
+  .overflow_o(overflow_o),
+  .underflow_o(underflow_o),
+  .wr_datacount_o(),
+  .rd_datacount_o()
+);
+
 endmodule

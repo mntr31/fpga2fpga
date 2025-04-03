@@ -110,8 +110,7 @@ module fpga2_receiver (
       end
   end
       
-fpga2_receiver_fifo
-(
+fpga2_receiver_fifo receiver_fifo (
   .prog_full_o(prog_full_o),
   .full_o(full_o),
   .empty_o(empty_o),
