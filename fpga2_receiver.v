@@ -86,8 +86,12 @@ module fpga2_receiver (
       end
               
       RECEIVE: begin                  // Receiving data from sender
-        if (!(send_done_sync[0] | send_done_sync[1])) begin    
+        if (wr_en_i) begin    
          fifo_wdata <= data_in;    // Store received data
+        end 
+        else if (prog_full_o) begin
+            rdy_out <= 0;           // FIFO is full, stop receiving data
+            state = IDLE;           // Go back to IDLE state
         end 
         else begin
          state <= ACKNOWLEDGE;
@@ -128,7 +132,8 @@ fpga2_receiver_fifo receiver_fifo (
   .rd_datacount_o()
 );
 
-  assign wr_en_i = (prog_full_o == 1'b0) ? 1'b1 : 1'b0; // Enable FIFO write when not full
+  assign wr_en_i = ((prog_full_o == 1'b0) && 
+                    ((send_done_sync[0] | send_done_sync[1]) == 1'b1)) ? 1'b1 : 1'b0; // Enable FIFO write when not full
   assign rd_en_i = (empty_o == 1'b0) ? 1'b1 : 1'b0; // Enable FIFO read when not empty
 
 // DRAM Writing

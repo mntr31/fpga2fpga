@@ -15,7 +15,6 @@ module fpga1_sender (
   input wr_en_i,        // Write enable signal for FIFO
   input rd_en_i,        // Read enable signal for FIFO
   output prog_full_o,   // Programmable full signal from FIFO
-  output [31:0] fifo_rdata, // FIFO read data
   output empty_o,       // Empty signal from FIFO
 
   // Secondary FIFO signals
@@ -128,14 +127,17 @@ fpga1_sender_fifo sender_fifo (
   .rd_clk_i(rd_clk_i),
   .wr_en_i(wr_en_i),
   .rd_en_i(rd_en_i),
-  .wdata(fifo_wdata),
+  .wdata(data_in),
   .rst_busy(rst_busy),
-  .rdata(fifo_rdata),
+  .rdata(data_out),
   .a_rst_i(rst),
   .overflow_o(overflow_o),
   .underflow_o(underflow_o),
   .wr_datacount_o(),
   .rd_datacount_o()
 );
+
+ assign wr_en_i = (prog_full_o == 1'b0) ? 1'b1 : 1'b0; // Enable FIFO write when not full
+ assign rd_en_i = ((empty_o == 1'b0) && (rdy_in == 1'b1)) ? 1'b1 : 1'b0; // Enable FIFO read when not empty
 
 endmodule
